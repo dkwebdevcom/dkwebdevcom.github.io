@@ -3,6 +3,7 @@ languageCode = "pl"
 defaultContentLanguage = "pl"
 defaultContentLanguageInSubdir = false
 title = "Pogotowie Kanalizacyjne Wrocław"
+theme = "hydro"
 
 [params]
   description = "Profesjonalne pogotowie kanalizacyjne we Wrocławiu. Udrażnianie i czyszczenie kanalizacji 24/7."
@@ -21,12 +22,3 @@ title = "Pogotowie Kanalizacyjne Wrocław"
 
 [build]
   writeStats = true
-
-[module]
-  [[module.mounts]]
-    source = "assets"
-    target = "assets"
-
-  [[module.mounts]]
-    source = "hugo_stats.json"
-    target = "assets/watching/hugo_stats.json"

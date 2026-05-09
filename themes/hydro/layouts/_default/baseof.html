@@ -32,25 +32,15 @@
   </script>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans antialiased">
-  <header class="sticky top-0 z-30 bg-white/95 border-b border-slate-200 backdrop-blur-md shadow-sm">
-    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-3 text-sm text-slate-600">
-      <div class="flex flex-wrap items-center gap-4">
-        <a href="mailto:pogotowiekanalizacyjnewro@gmail.com" class="hover:text-primary transition">pogotowiekanalizacyjnewro@gmail.com</a>
-      </div>
-      <div class="flex items-center gap-3">
-        {{ if eq .Lang "pl" }}
-          <a href="/en/" class="text-slate-600 transition hover:text-primary font-semibold">EN</a>
-        {{ else }}
-          <a href="/" class="text-slate-600 transition hover:text-primary font-semibold">PL</a>
-        {{ end }}
-      </div>
-    </div>
-    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
-      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center gap-3 text-xl font-bold text-slate-900">
-        <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">P</span>
+  <header class="sticky top-0 z-40 bg-white/95 border-b border-slate-200 backdrop-blur-md shadow-sm">
+
+    <!-- Main navigation: responsive -->
+    <div class="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 py-3 sm:py-4">
+      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center gap-2 text-lg font-bold text-slate-900">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-white text-sm font-bold">P</span>
         <span class="hidden sm:inline">Pogotowie Kanalizacyjne</span>
       </a>
-      <nav class="hidden flex-1 items-center justify-center gap-6 text-sm font-semibold text-slate-700 md:flex">
+      <nav class="hidden flex-1 items-center justify-center gap-4 text-sm font-semibold text-slate-700 md:flex">
         <a href="{{ "/" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "home" | default "Home" }}</a>
         {{ if eq .Lang "en" }}
           <a href="{{ "about-us" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "about" | default "About" }}</a>
@@ -64,12 +54,12 @@
           <a href="{{ "kontakt" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "contact" | default "Contact" }}</a>
         {{ end }}
       </nav>
-      <div class="flex items-center gap-3">
-        <div class="hidden flex-col text-right text-sm text-slate-600 lg:flex">
+      <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+        <div class="hidden flex-col text-right text-xs text-slate-600 lg:flex">
           <span class="font-semibold text-slate-900">+48 602 680 063</span>
-          <span>24/7 awaryjne usługi</span>
+          <span class="text-xs">24/7</span>
         </div>
-        <a href="{{ if eq .Lang "en" }}{{ "contact" | relLangURL }}{{ else }}{{ "kontakt" | relLangURL }}{{ end }}" class="rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">{{ if eq .Lang "en" }}Get a quote{{ else }}Zamów usługę{{ end }}</a>
+        <a href="{{ if eq .Lang "en" }}{{ "contact" | relLangURL }}{{ else }}{{ "kontakt" | relLangURL }}{{ end }}" class="rounded-full bg-secondary px-4 py-2 text-xs font-semibold text-white transition hover:bg-orange-600 sm:px-5 sm:py-3 sm:text-sm">{{ if eq .Lang "en" }}Quote{{ else }}Zamów{{ end }}</a>
       </div>
     </div>
   </header>

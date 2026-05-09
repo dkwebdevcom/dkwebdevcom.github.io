@@ -1,0 +1,14 @@
+name = "Hydro"
+license = "MIT"
+licenselink = "https://github.com/yourusername/hydro/blob/main/LICENSE"
+description = "Mobile-first responsive theme for plumbing and sewage services"
+homepage = "https://github.com/yourusername/hydro"
+demosite = "https://dkwebdevcom.github.io/hydro/"
+tags = ["responsive", "mobile-first", "multilingual", "business", "service"]
+features = ["mobile-responsive", "multilingual", "seo-optimized", "dark-mode-ready"]
+author = "Your Name"
+authorHomepage = "https://yoursite.com"
+
+[module]
+  [[module.imports]]
+    path = "github.com/yourusername/hydro"

@@ -1,7 +1,7 @@
 ---
 title: "Pogotowie Kanalizacyjne Wrocław"
 description: "Profesjonalne pogotowie kanalizacyjne we Wrocławiu. Udrażnianie i czyszczenie kanalizacji 24/7. Szybka reakcja, gwarancja na usługi."
-featureImage: "/images/hero.svg"
+featureImage: "/images/hero.jpeg"
 slug: ""
 date: 2023-01-01
 draft: false

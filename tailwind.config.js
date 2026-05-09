@@ -1,11 +1,11 @@
 /** @type {import('tailwindcss').config} */
 module.exports = {
-  content: ['./hugo_stats.json', './layouts/**/*.html', './content/**/*.md'],
+  content: ['./hugo_stats.json', './themes/hydro/layouts/**/*.html', './content/**/*.md'],
   theme: {
     extend: {
       colors: {
-        primary: '#007bff', // blue
-        secondary: '#ff6600', // orange
+        primary: '#007bff',
+        secondary: '#ff6600',
       }
     },
   },
