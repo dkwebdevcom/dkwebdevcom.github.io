@@ -1,0 +1,80 @@
+[about]
+other = "About"
+
+[services]
+other = "Services"
+
+[faq]
+other = "FAQ"
+
+[contact]
+other = "Contact"
+
+[areas]
+other = "Service Area"
+
+[pricing]
+other = "Pricing"
+
+[guarantee]
+other = "Guarantee"
+
+[methods]
+other = "Methods"
+
+[emergency]
+other = "Emergency"
+
+[home]
+other = "Home"
+
+[hero_subtitle]
+other = "Drain Unclogging and Cleaning"
+
+[hero_title]
+other = "Fast and Reliable Emergency Sewage Help in Wrocław"
+
+[hero_description]
+other = "We operate 24/7 for emergency sewage problems. We remove blockages, clean systems and guarantee arrival within 30–60 minutes."
+
+[call_now]
+other = "Call Now"
+
+[our_services]
+other = "Our Services"
+
+[response_time]
+other = "Response Time"
+
+[emergency_help]
+other = "Emergency Help"
+
+[quality_guarantee]
+other = "Quality Guarantee"
+
+[no_hidden_costs]
+other = "No Hidden Costs"
+
+[services_24_7]
+other = "24/7 Services"
+
+[services_24_7_desc]
+other = "Quick help with blockage removal and drain cleaning."
+
+[response_title]
+other = "Response in 30-60 Minutes"
+
+[response_desc]
+other = "We respond immediately to emergencies in Wrocław and surrounding areas."
+
+[guarantee_title]
+other = "Quality Guarantee"
+
+[guarantee_desc]
+other = "Clear terms, no hidden costs and reliable service."
+
+[contact_prompt]
+other = "Have a problem? Call immediately."
+
+[contact_us]
+other = "Contact Us"

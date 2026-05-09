@@ -1,0 +1,22 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f4f9f"/>
+      <stop offset="1" stop-color="#ff7a2b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#bg)" />
+  <circle cx="320" cy="240" r="120" fill="#ffffff22" />
+  <circle cx="920" cy="560" r="180" fill="#ffffff22" />
+  <rect x="352" y="320" width="520" height="280" rx="60" fill="#ffffff" opacity="0.12" />
+  <path d="M570 400H760" stroke="#fff" stroke-width="32" stroke-linecap="round" />
+  <path d="M570 440H760" stroke="#fff" stroke-width="32" stroke-linecap="round" />
+  <path d="M590 360C620 320 680 320 710 360" stroke="#fff" stroke-width="30" stroke-linecap="round" fill="none" />
+  <path d="M465 560L530 520L620 620" stroke="#fff" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M750 320C760 250 820 220 880 250" stroke="#fff" stroke-width="28" stroke-linecap="round" fill="none" />
+  <circle cx="730" cy="540" r="72" fill="#fff" opacity="0.18" />
+  <path d="M720 520L780 560" stroke="#fff" stroke-width="22" stroke-linecap="round" />
+  <path d="M780 520L720 560" stroke="#fff" stroke-width="22" stroke-linecap="round" />
+  <text x="75" y="145" fill="#fff" font-size="64" font-weight="700" font-family="Inter, Arial, sans-serif">Pogotowie Kanalizacyjne</text>
+  <text x="75" y="210" fill="#fff" font-size="32" font-weight="500" font-family="Inter, Arial, sans-serif">Szybka pomoc 24/7 we Wrocławiu</text>
+</svg>

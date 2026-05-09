@@ -1,0 +1,32 @@
+baseURL = "https://yourusername.github.io/hydro/"
+languageCode = "pl"
+defaultContentLanguage = "pl"
+defaultContentLanguageInSubdir = false
+title = "Pogotowie Kanalizacyjne Wrocław"
+
+[params]
+  description = "Profesjonalne pogotowie kanalizacyjne we Wrocławiu. Udrażnianie i czyszczenie kanalizacji 24/7."
+  author = "Pogotowie Kanalizacyjne Wrocław"
+
+[languages]
+[languages.pl]
+  title = "Pogotowie Kanalizacyjne Wrocław"
+  languageCode = "pl"
+  weight = 1
+
+[languages.en]
+  title = "Sewage Emergency Wrocław"
+  languageCode = "en"
+  weight = 2
+
+[build]
+  writeStats = true
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"

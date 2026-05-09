@@ -1,0 +1,15 @@
+{
+  "name": "hydro",
+  "version": "1.0.0",
+  "scripts": {
+    "build-css": "tailwindcss -i assets/css/main.css -o static/css/compiled/main.css",
+    "dev-css": "tailwindcss -i assets/css/main.css -o static/css/compiled/main.css --watch",
+    "build": "npm run build-css && npx hugo --minify",
+    "dev": "npx hugo server"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "hugo-bin": "^0.131.0"
+  }
+}

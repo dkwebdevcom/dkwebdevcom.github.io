@@ -1,0 +1,17 @@
+# Node dependencies
+node_modules/
+
+# Build outputs
+public/
+static/css/compiled/
+
+# Hugo cache / build files
+.hugo_build.lock
+hugo_stats.json
+
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+*.swp

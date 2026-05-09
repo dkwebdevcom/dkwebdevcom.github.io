@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ .Title }}</title>
+  <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+  <link rel="stylesheet" href="{{ "css/compiled/main.css" | relURL }}">
+  <!-- SEO -->
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+  <meta property="og:image" content="{{ "images/hero.svg" | relURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Pogotowie Kanalizacyjne Wrocław",
+    "description": "{{ .Site.Params.description }}",
+    "url": "{{ .Site.BaseURL }}",
+    "telephone": "+48602680063",
+    "email": "pogotowiekanalizacyjnewro@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "UL.BOLESŁAWA KRZYWOUSTEGO 326/6",
+      "addressLocality": "Wrocław",
+      "addressCountry": "PL"
+    },
+    "areaServed": "Wrocław oraz okolice w promieniu do 20 km",
+    "openingHours": "Mo-Su 00:00-23:59"
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+  <header class="sticky top-0 z-30 bg-white/95 border-b border-slate-200 backdrop-blur-md shadow-sm">
+    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-3 text-sm text-slate-600">
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="mailto:pogotowiekanalizacyjnewro@gmail.com" class="hover:text-primary transition">pogotowiekanalizacyjnewro@gmail.com</a>
+      </div>
+      <div class="flex items-center gap-3">
+        {{ if eq .Lang "pl" }}
+          <a href="/en/" class="text-slate-600 transition hover:text-primary font-semibold">EN</a>
+        {{ else }}
+          <a href="/" class="text-slate-600 transition hover:text-primary font-semibold">PL</a>
+        {{ end }}
+      </div>
+    </div>
+    <div class="container mx-auto flex flex-wrap items-center justify-between gap-4 px-4 py-4">
+      <a href="{{ "/" | relLangURL }}" class="inline-flex items-center gap-3 text-xl font-bold text-slate-900">
+        <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">P</span>
+        <span class="hidden sm:inline">Pogotowie Kanalizacyjne</span>
+      </a>
+      <nav class="hidden flex-1 items-center justify-center gap-6 text-sm font-semibold text-slate-700 md:flex">
+        <a href="{{ "/" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "home" | default "Home" }}</a>
+        {{ if eq .Lang "en" }}
+          <a href="{{ "about-us" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "about" | default "About" }}</a>
+          <a href="{{ "services" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "services" | default "Services" }}</a>
+          <a href="{{ "faq" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "faq" | default "FAQ" }}</a>
+          <a href="{{ "contact" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "contact" | default "Contact" }}</a>
+        {{ else }}
+          <a href="{{ "o-nas" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "about" | default "About" }}</a>
+          <a href="{{ "uslugi" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "services" | default "Services" }}</a>
+          <a href="{{ "faq" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "faq" | default "FAQ" }}</a>
+          <a href="{{ "kontakt" | relLangURL }}" class="transition hover:text-secondary">{{ i18n "contact" | default "Contact" }}</a>
+        {{ end }}
+      </nav>
+      <div class="flex items-center gap-3">
+        <div class="hidden flex-col text-right text-sm text-slate-600 lg:flex">
+          <span class="font-semibold text-slate-900">+48 602 680 063</span>
+          <span>24/7 awaryjne usługi</span>
+        </div>
+        <a href="{{ if eq .Lang "en" }}{{ "contact" | relLangURL }}{{ else }}{{ "kontakt" | relLangURL }}{{ end }}" class="rounded-full bg-secondary px-5 py-3 text-sm font-semibold text-white transition hover:bg-orange-600">{{ if eq .Lang "en" }}Get a quote{{ else }}Zamów usługę{{ end }}</a>
+      </div>
+    </div>
+  </header>
+  <main class="container mx-auto p-4">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="border-t border-slate-200 bg-white py-8">
+    <div class="container mx-auto text-center text-sm text-slate-500">
+      <p>&copy; {{ now.Format "2006" }} <br /> Pogotowie Kanalizacyjne Wrocław. <br />Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+[about]
+other = "O Nas"
+
+[services]
+other = "Usługi"
+
+[faq]
+other = "FAQ"
+
+[contact]
+other = "Kontakt"
+
+[areas]
+other = "Obszar Działania"
+
+[pricing]
+other = "Cennik"
+
+[guarantee]
+other = "Gwarancja"
+
+[methods]
+other = "Metody"
+
+[emergency]
+other = "Awaria"
+
+[home]
+other = "Strona główna"
+
+[hero_subtitle]
+other = "Udrażnianie i czyszczenie kanalizacji"
+
+[hero_title]
+other = "Szybka i niezawodna pomoc kanalizacyjna we Wrocławiu"
+
+[hero_description]
+other = "Działamy 24/7 przy nagłych awariach kanalizacyjnych. Usuwamy zatory, czyścimy systemy i zapewniamy przyjazd w 30–60 minut."
+
+[call_now]
+other = "Zadzwoń teraz"
+
+[our_services]
+other = "Nasze usługi"
+
+[response_time]
+other = "Dojazd"
+
+[emergency_help]
+other = "Awaryjna pomoc"
+
+[quality_guarantee]
+other = "Gwarancja"
+
+[no_hidden_costs]
+other = "Bez ukrytych kosztów"
+
+[services_24_7]
+other = "Usługi 24/7"
+
+[services_24_7_desc]
+other = "Szybka pomoc w usuwaniu zatorów i czyszczeniu kanalizacji."
+
+[response_title]
+other = "Dojazd w 30-60 minut"
+
+[response_desc]
+other = "Reagujemy natychmiast na awarie w Wrocławiu i okolicach."
+
+[guarantee_title]
+other = "Gwarancja jakości"
+
+[guarantee_desc]
+other = "Jasne warunki, brak ukrytych kosztów i pewna realizacja."
+
+[contact_prompt]
+other = "Masz problem? Zadzwoń natychmiast."
+
+[contact_us]
+other = "Skontaktuj się"
