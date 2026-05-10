@@ -2,8 +2,8 @@
   "name": "hydro",
   "version": "1.0.0",
   "scripts": {
-    "build-css": "tailwindcss -i assets/css/main.css -o static/css/compiled/main.css",
-    "dev-css": "tailwindcss -i assets/css/main.css -o static/css/compiled/main.css --watch",
+    "build-css": "tailwindcss -i themes/hydro/assets/css/main.css -o themes/hydro/static/css/compiled/main.css",
+    "dev-css": "tailwindcss -i themes/hydro/assets/css/main.css -o themes/hydro/static/css/compiled/main.css --watch",
     "build": "npm run build-css && npx hugo --minify",
     "dev": "npx hugo server"
   },

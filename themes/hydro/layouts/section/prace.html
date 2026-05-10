@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-12">
+  <div class="mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{{ .Title }}</h1>
+    <p class="text-lg text-slate-600">{{ .Description }}</p>
+  </div>
+
+  <!-- Articles Grid -->
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {{ range .Pages }}
+      <article class="rounded-[1.75rem] bg-white p-6 shadow-lg shadow-slate-200/30 overflow-hidden hover:shadow-xl transition">
+        <div class="mb-4 flex flex-wrap gap-2">
+          {{ range .Params.tags }}
+            <a href="{{ printf "/hydro/tags/%s" (urlize .) }}" class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary hover:bg-primary/20 transition">
+              #{{ . }}
+            </a>
+          {{ end }}
+        </div>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-3 line-clamp-2">
+          <a href="{{ .Permalink }}" class="hover:text-primary transition">{{ .Title }}</a>
+        </h2>
+        <p class="text-slate-600 text-sm mb-4">{{ .Description }}</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+          <a href="{{ .Permalink }}" class="text-primary font-semibold hover:text-secondary transition">Czytaj →</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

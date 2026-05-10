@@ -5,7 +5,7 @@
     <div class="absolute left-0 top-0 h-56 w-56 rounded-full bg-sky-200/40 blur-2xl"></div>
     <div class="container mx-auto grid gap-10 px-6 py-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
       <div class="space-y-8">
-        <span class="inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-primary">Udrażnianie i czyszczenie kanalizacji</span>
+        <span class="hidden md:inline-flex rounded-full bg-primary/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.24em] text-primary">Udrażnianie i czyszczenie kanalizacji</span>
         <h1 class="text-5xl font-bold leading-tight text-slate-900 md:text-6xl">Szybka i niezawodna pomoc kanalizacyjna we Wrocławiu</h1>
         <p class="max-w-2xl text-lg leading-8 text-slate-600">Działamy 24/7 przy nagłych awariach kanalizacyjnych. Usuwamy zatory, czyścimy systemy i zapewniamy przyjazd w 30–60 minut.</p>
         <div class="flex flex-wrap gap-4">
@@ -47,6 +47,41 @@
       </article>
     {{ end }}
   </section>
+
+  <!-- Latest Blog Articles -->
+  {{ $praceSection := where site.RegularPages "Section" "prace" }}
+  {{ if $praceSection }}
+  <section class="space-y-8">
+    <div class="space-y-4">
+      <p class="text-sm uppercase tracking-[0.24em] text-primary font-semibold">Porady i artykuły</p>
+      <div class="flex items-end justify-between">
+        <h2 class="text-3xl font-bold text-slate-900">Ostatnie artykuły</h2>
+        <a href="{{ "prace" | relLangURL }}" class="text-primary font-semibold hover:text-secondary transition">Wszystkie artykuły →</a>
+      </div>
+    </div>
+    <div class="grid gap-6 md:grid-cols-3">
+      {{ range first 3 (sort $praceSection "Date" "desc") }}
+      <article class="rounded-[1.75rem] bg-white p-6 shadow-lg shadow-slate-200/30 overflow-hidden hover:shadow-xl transition">
+        <div class="mb-4 flex flex-wrap gap-2">
+          {{ range first 2 .Params.tags }}
+            <a href="{{ printf "/hydro/tags/%s" (urlize .) }}" class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary hover:bg-primary/20 transition">
+              #{{ . }}
+            </a>
+          {{ end }}
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 mb-3 line-clamp-2">
+          <a href="{{ .Permalink }}" class="hover:text-primary transition">{{ .Title }}</a>
+        </h3>
+        <p class="text-slate-600 text-sm mb-4 line-clamp-2">{{ .Description }}</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan" }}</time>
+          <a href="{{ .Permalink }}" class="text-primary font-semibold hover:text-secondary transition">Czytaj →</a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
 
   <section class="rounded-[2rem] bg-primary text-white p-10 shadow-xl shadow-slate-200/20">
     <div class="grid gap-8 lg:grid-cols-3 lg:items-center">

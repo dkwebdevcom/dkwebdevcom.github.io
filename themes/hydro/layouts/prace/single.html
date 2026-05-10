@@ -1,0 +1,92 @@
+{{ define "main" }}
+<article class="container mx-auto px-4 py-12">
+  <div class="max-w-3xl mx-auto">
+    <!-- Article Header -->
+    <div class="mb-8 pb-8 border-b border-slate-200">
+      <div class="mb-4 flex flex-wrap gap-2">
+        {{ range .Params.tags }}
+          <a href="{{ printf "/hydro/tags/%s" (urlize .) }}" class="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold text-primary hover:bg-primary/20 transition">
+            #{{ . }}
+          </a>
+        {{ end }}
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">{{ .Title }}</h1>
+      <p class="text-lg text-slate-600 mb-4">{{ .Description }}</p>
+      <div class="flex flex-wrap gap-4 text-sm text-slate-500">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+        <span>Czytanie: ~{{ math.Round (div (len (plainify .Content)) 200) }} min</span>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="prose prose-lg max-w-none mb-12 text-slate-700">
+      {{ .Content }}
+    </div>
+
+    <!-- Tags Widget -->
+    <aside class="bg-slate-50 rounded-[1.75rem] p-6 md:p-8 mb-12">
+      <h3 class="text-lg font-bold text-slate-900 mb-4">Tagi w tym artykule</h3>
+      <div class="flex flex-wrap gap-3">
+        {{ range .Params.tags }}
+          <a href="{{ printf "/hydro/tags/%s" (urlize .) }}" class="inline-flex items-center rounded-full bg-white border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-900 hover:border-primary hover:text-primary hover:bg-primary/5 transition">
+            {{ . }}
+            <span class="ml-2 text-slate-500">
+              {{ len (where (where (where site.RegularPages.ByTitle "Params.tags" "intersect" (slice .)) "Section" "prace") "Kind" "page") }}
+            </span>
+          </a>
+        {{ end }}
+      </div>
+    </aside>
+
+    <!-- Related Articles -->
+    {{ $currentPage := . }}
+    {{ $currentTags := .Params.tags }}
+    
+    {{ $relatedPages := slice }}
+    {{ range where (where site.RegularPages "Section" "prace") "Kind" "page" }}
+      {{ if ne .Permalink $currentPage.Permalink }}
+        {{ $article := . }}
+        {{ $hasSharedTag := false }}
+        {{ range $currentTags }}
+          {{ if in $article.Params.tags . }}
+            {{ $hasSharedTag = true }}
+          {{ end }}
+        {{ end }}
+        {{ if $hasSharedTag }}
+          {{ $relatedPages = $relatedPages | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+
+    {{ if gt (len $relatedPages) 0 }}
+      <div class="border-t border-slate-200 pt-12">
+        <h3 class="text-2xl font-bold text-slate-900 mb-6">Powiązane artykuły</h3>
+        <div class="grid gap-6 md:grid-cols-2">
+          {{ range (first 4 $relatedPages) }}
+            <div class="rounded-[1.5rem] bg-white p-6 shadow-md hover:shadow-lg transition">
+              <h4 class="font-bold text-slate-900 mb-2">
+                <a href="{{ .Permalink }}" class="hover:text-primary transition">{{ .Title }}</a>
+              </h4>
+              <p class="text-sm text-slate-600 line-clamp-2">{{ .Description }}</p>
+              <div class="mt-4 flex flex-wrap gap-1">
+                {{ range (first 2 .Params.tags) }}
+                  <span class="inline-flex rounded-full bg-primary/10 px-2 py-1 text-xs font-semibold text-primary">#{{ . }}</span>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+
+    <!-- CTA -->
+    <div class="mt-12 rounded-[2rem] bg-primary text-white p-8 md:p-12 text-center">
+      <h3 class="text-2xl font-bold mb-3">Potrzebujesz profesjonalnej pomocy?</h3>
+      <p class="text-lg mb-6 text-white/90">Nasze zespół specjalistów jest dostępny 24/7/365.</p>
+      <a href="/hydro/kontakt" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold text-primary transition hover:bg-slate-100">
+        Skontaktuj się z nami
+      </a>
+    </div>
+  </div>
+</article>
+{{ end }}

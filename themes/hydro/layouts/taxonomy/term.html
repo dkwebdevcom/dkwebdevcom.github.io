@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-12">
+  <div class="mb-12">
+    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      Tag: <span class="text-primary">#{{ .Title }}</span>
+    </h1>
+    <p class="text-lg text-slate-600">
+      Znaleziono {{ len .Pages }} artykułów związanych z tym tematem
+    </p>
+  </div>
+
+  <!-- Articles Grid -->
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {{ range .Pages }}
+      <article class="rounded-[1.75rem] bg-white p-6 shadow-lg shadow-slate-200/30 overflow-hidden hover:shadow-xl transition">
+        <div class="mb-4 flex flex-wrap gap-2">
+          {{ range .Params.tags }}
+            <a href="{{ printf "/hydro/tags/%s" (urlize .) }}" class="inline-flex items-center rounded-full {{ if eq . $.Title }}bg-primary text-white{{ else }}bg-primary/10 text-primary{{ end }} px-3 py-1 text-xs font-semibold hover:opacity-80 transition">
+              #{{ . }}
+            </a>
+          {{ end }}
+        </div>
+        <h2 class="text-xl md:text-2xl font-bold text-slate-900 mb-3 line-clamp-2">
+          <a href="{{ .Permalink }}" class="hover:text-primary transition">{{ .Title }}</a>
+        </h2>
+        <p class="text-slate-600 text-sm mb-4">{{ .Description }}</p>
+        <div class="flex items-center justify-between text-xs text-slate-500">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+          <a href="{{ .Permalink }}" class="text-primary font-semibold hover:text-secondary transition">Czytaj →</a>
+        </div>
+      </article>
+    {{ end }}
+  </div>
+
+  <!-- All Tags -->
+  <div class="mt-12 pt-12 border-t border-slate-200">
+    <h3 class="text-2xl font-bold text-slate-900 mb-6">Wszystkie tagi</h3>
+    <div class="flex flex-wrap gap-2">
+      {{ $currentTag := .Title }}
+      {{ range site.Taxonomies.tags.ByCount }}
+        <a href="{{ .Page.Permalink }}" class="inline-flex items-center rounded-full {{ if eq .Name $currentTag }}bg-primary text-white{{ else }}bg-slate-100 text-slate-900 hover:bg-slate-200{{ end }} px-4 py-2 text-sm font-semibold transition">
+          #{{ .Name }} <span class="ml-2 text-xs opacity-70">({{ .Count }})</span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
